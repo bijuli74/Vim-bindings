@@ -3,6 +3,11 @@
 - Select all from Normal Mode: ggvG (gg moves to start of file , G moves to end of file)
 - To enclose selected text within quotes or braces Shift+s+quotes/braces eg. S(, S" , etc.
 - To change the block of text within braces (vi( vi{ vi< etc) or quotes vi" , vi' etc.
+-  da" - Delete Around quotes
+- di] - Delete Inside brackets
+- ci{ - Change Inside braces
+- dap - Delete Around Paragraph
+- vaw - Visually select Around Word
 ## Registers
 
 Vim registers are essentially spaces in memory that Vim uses to store text or operation details¹². Each register has an identifier, which can be accessed later¹². Here are some key points:
