@@ -3,6 +3,7 @@
 - Select all from Normal Mode: ggvG (gg moves to start of file , G moves to end of file)
 - To enclose selected text within quotes or braces Shift+s+quotes/braces eg. S(, S" , etc.
 - To change the block of text within braces (vi( vi{ vi< etc) or quotes vi" , vi' etc.
+-  diw - delete (cut) word under the cursor
 -  da" - Delete Around quotes
 - di] - Delete Inside brackets
 - ci{ - Change Inside braces
