@@ -3,21 +3,31 @@
 -- Add any additional keymaps here
 
 local Util = require("lazyvim.util")
+
 local lazyterm = function()
   Util.terminal(nil, { cwd = Util.root() })
 end
 
-local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+
+-- Surround
+vim.keymap.set("n", "s", "gs")
+
+-- Move Lines
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Change file permission Linux
+vim.keymap.set("n", "<leader>xp", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Delete a word backwards in Insert mode
-keymap.set("i", "<C-BS>", "<C-w>")
-keymap.set("c", "<C-BS>", "<C-w>")
-keymap.set("i", "<C-H>", "<C-w>")
-keymap.set("c", "<C-H>", "<C-w>")
+vim.keymap.set("i", "<C-BS>", "<C-w>")
+vim.keymap.set("c", "<C-BS>", "<C-w>")
+vim.keymap.set("i", "<C-H>", "<C-w>")
+vim.keymap.set("c", "<C-H>", "<C-w>")
 
 -- Comments
 vim.api.nvim_del_keymap("n", "<c-/>")
@@ -48,10 +58,19 @@ vim.api.nvim_set_keymap(
 )
 
 -- Floating Terminal
-keymap.set("n", "<m-;>", lazyterm, { desc = "Terminal (root dir)" })
-keymap.set("t", "<M-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+vim.keymap.set("n", "<m-;>", lazyterm, { desc = "Terminal (root dir)" })
+vim.keymap.set("t", "<M-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
+vim.keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
+
+-- Quickfix List
+vim.keymap.set("n", "<leader>m", "<cmd>copen<cr>", { desc = "Quickfix List" })
+vim.keymap.set("n", "<leader>M", function()
+  require("trouble").toggle("quickfix")
+end)
+
+-- Alternate File Explorer
+vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "NetRW File Explorer" })
