@@ -58,8 +58,8 @@ vim.api.nvim_set_keymap(
 )
 
 -- Floating Terminal
-vim.keymap.set("n", "<m-;>", lazyterm, { desc = "Terminal (root dir)" })
-vim.keymap.set("t", "<M-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
+vim.keymap.set("n", "<M-;>", lazyterm, { desc = "Terminal (root dir)" })
+vim.keymap.set("t", "<m-;>", "<cmd>close<cr>", { desc = "Hide Terminal" })
 
 -- Diagnostics
 vim.keymap.set("n", "<C-j>", function()
@@ -70,7 +70,7 @@ end, opts)
 vim.keymap.set("n", "<leader>m", "<cmd>copen<cr>", { desc = "Quickfix List" })
 vim.keymap.set("n", "<leader>M", function()
   require("trouble").toggle("quickfix")
-end)
+end, { desc = "Trouble fix list" })
 
 -- Alternate File Explorer
-vim.keymap.set("n", "<leader>pv", vim.cmd.Explore, { desc = "NetRW File Explorer" })
+-- vim.keymap.set("n", "<C-e>", vim.cmd.Explore, { desc = "NetRW File Explorer" })
