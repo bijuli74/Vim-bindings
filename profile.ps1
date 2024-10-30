@@ -5,4 +5,17 @@ Set-PSReadLineKeyHandler -Key Tab -Function TabCompleteNext
 Set-PSReadlineKeyHandler -Key Ctrl+p -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key Ctrl+n -Function HistorySearchForward
 
+function printenv {
+    param(
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]
+        $VariableName
+    )
+
+    $varValue =  [System.Environment]::GetEnvironmentVariable(${VariableName})
+    Write-Host $varValue
+}
+
+New-Alias -Name df -Value Get-PSDrive | Format-Table Name, Used, Free, @{Label='Size'; Expression={($_.Used + $_.Free)}} -AutoSize
+
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_lean.omp.json" | Invoke-Expression
