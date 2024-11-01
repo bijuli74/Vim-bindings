@@ -259,10 +259,36 @@
       "before": ["<leader>", "J", "p"],
       "commands": ["maven.goal.package"]
     },
+    {
+      "before": ["<leader>", "J", "r"],
+      "commands": ["maven.goal.execute.fromFavoritesMenu"]
+    },
+    {
+      "before": ["z", "f"],
+      "commands": ["editor.toggleFold"]
+    },
+    // {
+    //   "before": ["<leader>", "s", "w"],
+    //   "commands": ["editor.action.findWithSelection"],
+    //   "when": "editorFocus"
+    // },
     // advanced new file
     {
       "before": ["<leader>", "f", "n"],
       "commands": ["extension.advancedNewFile"]
+    },
+    // search word under cursor
+    {
+      "before": ["<leader>", "s", "w"],
+      "commands": ["extension.searchUnderCursor"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["clipboard-manager.editor.pickAndPaste"]
+    },
+    {
+      "before": ["<leader>", "s", "k"],
+      "commands": ["workbench.action.openGlobalKeybindings"]
     }
   ],
 
@@ -280,10 +306,26 @@
     "<C-h>": false
   },
 
+  //to move quickly to file list "search all" window
+  // "multiCommand.commands": [
+  //   {
+  //     "command": "multiCommand.focusSearchAndTab",
+  //     "sequence": [
+  //       "workbench.view.search",
+  //       "search.action.focusSearchFromResults",
+  //       { "command": "list.focusDown" },
+  //       { "command": "list.focusDown" },
+  //       { "command": "list.focusDown" },
+  //       { "command": "list.focusDown" }
+  //     ]
+  //   }
+  // ],
+
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
   },
+  "clipboard-manager.onlyWindowFocused": false,
   "workbench.startupEditor": "none",
   "editor.fontFamily": "'FiraCode Nerd Font Mono', 'Fira Code Retina', Consolas, monospace",
   "bracket-pair-colorizer-2.depreciation-notice": false,
@@ -350,7 +392,9 @@
   "java.import.gradle.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.3.9-hotspot",
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
-  }
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "debug.disassemblyView.showSourceCode": false
 }
 
 // {
