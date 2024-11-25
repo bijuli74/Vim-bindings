@@ -1,5 +1,7 @@
 Here are some useful Visual Studio Code (VSCode) keyboard shortcuts:
 
+[vscode vim](https://dev.to/ansonh/10-more-vs-code-vim-tricks-to-become-a-faster-coder-ndi)
+
 **File Management**
 
 - `Ctrl+P`: Quick Open, Go to File
