@@ -3,24 +3,6 @@
     "key": "ctrl+p",
     "command": "workbench.action.quickOpen"
   },
-
-  // go to defintion
-  // {
-  //   "key": "F12",
-  //   "command": "vim.remap",
-  //   "when": "inputFocus && vim.mode == 'Normal'",
-  //   "args": {
-  //     "after": ["g", "d"]
-  //   }
-  // },
-  // {
-  //   "key": "ctrl+shift+f",
-  //   "command": "vim.remap",
-  //   "when": "inputFocus && vim.mode == 'Normal'",
-  //   "args": {
-  //     "after": ["<leader>", "/"]
-  //   }
-  // },
   {
     "key": "shift+f2",
     "command": "editor.action.formatDocument"
@@ -57,37 +39,38 @@
     "key": "ctrl+p",
     "command": "selectPrevSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  }, // Tabs - Reorder with "Shift + Left/Right"
+  {
+    "key": "shift+left",
+    "command": "-cursorColumnSelectLeft",
+    "when": "editorColumnSelection && textInputFocus"
   },
-  // {
-  //   "key": "ctrl+h",
-  //   "command": "list.collapse",
-  //   "when": "listFocus && !inputFocus"
-  // },
-  // {
-  //   "key": "ctrl+l",
-  //   "command": "list.expand",
-  //   "when": "listFocus && !inputFocus"
-  // },
-  // {
-  //   "key": "ctrl+k",
-  //   "command": "list.focusUp",
-  //   "when": "listFocus && !inputFocus"
-  // },
-  // {
-  //   "key": "ctrl+j",
-  //   "command": "list.focusDown",
-  //   "when": "listFocus && !inputFocus"
-  // },
-  // {
-  //   "key": "cmd+enter",
-  //   "command": "renameFile",
-  //   "when": "explorerViewletVisible && filesExplorerFocus"
-  // },
-  // {
-  //   "key": "enter",
-  //   "command": "-renameFile",
-  //   "when": "explorerViewletVisible && filesExplorerFocus"
-  // },
+  {
+    "key": "shift+left",
+    "command": "-cursorLeftSelect",
+    "when": "textInputFocus && vim.mode != 'Visual'"
+  },
+  {
+    "key": "shift+left",
+    "command": "workbench.action.moveEditorLeftInGroup",
+    "when": "vim.mode == 'Normal'"
+  },
+  {
+    "key": "shift+right",
+    "command": "-cursorColumnSelectRight",
+    "when": "editorColumnSelection && textInputFocus"
+  },
+  {
+    "key": "shift+right",
+    "command": "-cursorRightSelect",
+    "when": "textInputFocus && vim.mode != 'Visual'"
+  },
+  {
+    "key": "shift+right",
+    "command": "workbench.action.moveEditorRightInGroup",
+    "when": "vim.mode == 'Normal'"
+  },
+
   {
     "key": "enter",
     "command": "list.select",
@@ -116,14 +99,6 @@
     "key": "ctrl+shift+f3",
     "command": "workbench.action.toggleAuxiliaryBar"
   },
-  // {
-  //   "key": "ctrl+alt+b",
-  //   "command": "-workbench.action.toggleAuxiliaryBar"
-  // },
-  // {
-  //   "key": "ctrl+j",
-  //   "command": "-workbench.action.togglePanel"
-  // },
   {
     "key": "ctrl+shift+;",
     "command": "workbench.action.terminal.new",
@@ -316,10 +291,20 @@
   {
     "key": "ctrl+insert",
     "command": "-editor.action.clipboardCopyAction"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-continue.focusContinueInput"
+  },
+  // Copy selection quickly up or down
+  {
+    "key": "alt+shift+j",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+shift+k",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
   }
-  // {
-  //   "key": "ctrl+alt+t",
-  //   "command": "multiCommand.focusSearchAndTab",
-  //   "when": "sideBarFocus &&  searchViewletVisible"
-  // }
 ]
