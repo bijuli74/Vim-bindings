@@ -8,6 +8,7 @@
   "vim.hlsearch": true,
   "vim.sneak": true,
   "vim.easymotionMarkerooundColor": "#020202",
+  "vim.smartRelativeLine": true,
   "vim.normalModeKeyBindings": [
     {
       "before": ["<leader>", "<leader>"],
@@ -51,6 +52,15 @@
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
+    },
+    // Git
+    {
+      "before": ["<leader>", "g", "r"], // Revert hunk
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "B"], // Browse Open file in GitHub
+      "commands": ["gitlens.openFileOnRemote"]
     }
   ],
 
@@ -97,10 +107,13 @@
     },
     {
       "before": ["<leader>", "c", "s"],
-      "command": ["editor.action.accessibleViewGoToSymbol"],
-      "when": [
-        "accessibilityHelpIsShown && accessibleViewGoToSymbolSupported || accessibleViewGoToSymbolSupported && accessibleViewIsShown"
-      ]
+      "commands": ["workbench.action.gotoSymbol"],
+      "when": ["!accessibilityHelpIsShown && !accessibleViewIsShown"]
+    },
+    {
+      "before": ["<leader>", "c", "S"],
+      "commands": ["breadcrumbs.focusAndSelect"],
+      "when": ["breadcrumbsPossible && breadcrumbsVisible"]
     },
     {
       "before": ["<leader>", "f", "b"],
@@ -128,24 +141,24 @@
     //   "commands": ["editor.action.revealDefinition"]
     // },
     {
-      "before": ["g", "I"],
-      "commands": ["editor.action.goToImplementation"]
-    },
-    {
       "before": ["g", "D"],
       "commands": ["editor.action.revealDeclaration"]
+    },
+    {
+      "before": ["g", "I"],
+      "commands": ["editor.action.goToImplementation"]
     },
     {
       "before": ["g", "r"],
       "commands": ["editor.action.goToReferences"]
     },
     {
-      "before": ["g", "I"],
-      "commands": ["editor.action.goToImplementation"]
-    },
-    {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<leader>", "c", "r"],
+      "commands": ["editor.action.rename"]
     },
     {
       "before": ["<leader>", "s", "r"],
@@ -218,11 +231,11 @@
       "commands": ["workbench.action.debug.stepInto"]
     },
     {
-      "before": ["<leader>", "d", "o"],
+      "before": ["<leader>", "d", "O"],
       "commands": ["workbench.action.debug.stepOut"]
     },
     {
-      "before": ["<leader>", "d", "O"],
+      "before": ["<leader>", "d", "o"],
       "commands": ["workbench.action.debug.stepOver"]
     },
     {
@@ -233,6 +246,29 @@
       "before": ["<leader>", "d", "t"],
       "commands": ["workbench.action.debug.stop"]
     },
+
+    // Git
+    {
+      "before": ["<leader>", "g", "h", "d"], // Peek Git diff for the changed line
+      "commands": ["editor.action.dirtydiff.next"]
+    },
+    {
+      "before": ["<leader>", "g", "h", "D"], // Revert hunk
+      "commands": ["git.revertSelectedRanges"]
+    },
+    {
+      "before": ["<leader>", "g", "j"], // Jump to next Git change
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
+      "before": ["<leader>", "g", "k"], // Jump to previous Git change
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["<leader>", "g", "B"], // Open file in GitHub
+      "commands": ["gitlens.openFileOnRemote"]
+    },
+
     // Maven
     {
       "before": ["<leader>", "J", "a"],
@@ -393,8 +429,10 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
+  "debug.disassemblyView.showSourceCode": false,
+  "workbench.iconTheme": "a-file-icon-vscode",
   "workbench.colorTheme": "Default Dark+",
-  "debug.disassemblyView.showSourceCode": false
+  "clipboard-manager.maxClips": 99
 }
 
 // {
