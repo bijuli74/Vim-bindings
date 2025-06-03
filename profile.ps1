@@ -16,6 +16,6 @@ function printenv {
     Write-Host $varValue
 }
 
-New-Alias -Name df -Value Get-PSDrive | Format-Table Name, Used, Free, @{Label='Size'; Expression={($_.Used + $_.Free)}} -AutoSize
+New-Alias -Name df -Value Get-PSDrive | Format-Table -AutoSize
 
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_lean.omp.json" | Invoke-Expression
