@@ -100,6 +100,29 @@ for a full list.
 
 ## Custom Key Mappings
 
+### Insert your preferred key mappings here.
+```
+unmap <c-e>
+unmap <c-y>
+unmap H
+unmap L
+unmap J
+unmap K
+
+map H previousTab
+map L nextTab
+map J goBack
+map K goForward
+
+map go LinkHints.activateModeToOpenInNewForegroundTab
+map gx closeTabsOnLeft
+map gX closeTabsOnRight
+map gd LinkHints.activateModeToDownloadLink
+map gw LinkHints.activateModeToOpenIncognito
+map zX closeOtherTabs
+map ' Marks.activateGotoMode
+```
+
 You may remap or unmap any of the default key bindings in the "Custom key mappings" on the options
 page.
 
